@@ -14,9 +14,9 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var login = require('./interFace/login.js');
-var register  = require('./interFace/reg.js');
-var hasThisPhone = require('./interFace/hasThisPhone.js');
+var login = require('./interface/login.js');
+var register  = require('./interface/reg.js');
+var hasThisPhone = require('./interface/hasThisPhone.js');
 
 var app = express();
 
