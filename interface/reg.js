@@ -10,11 +10,11 @@ function register(app){
     app.post('/api/reg', (req, res) => {
         let data = req.body;
         console.log(data);
-        // data.id = 2;
+        data.id = parseInt(Math.random()*1000);
 
         mySql.insertData('user',data)
             .then(() => {
-                console.log(1)
+                res.json(JSON.stringify({msg: true}))
             }).catch((s) => {
             res.json(JSON.stringify({msg: undefined}));
         });
