@@ -14,6 +14,7 @@ function register(app) {
 
     mySql.insertData('user', data)
       .then(() => {
+      //插入成功
         res.json(JSON.stringify({msg: true}))
       }).catch((s) => {
       res.json(JSON.stringify({msg: undefined}));
