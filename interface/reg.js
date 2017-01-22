@@ -6,19 +6,19 @@
  */
 var mySql = require('../sql/index.js')
 
-function register(app){
-    app.post('/api/reg', (req, res) => {
-        let data = req.body;
-        console.log(data);
-        data.id = parseInt(Math.random()*1000);
+function register(app) {
+  app.post('/api/reg', (req, res) => {
+    let data = req.body;
+    console.log(data);
+    data.id = parseInt(Math.random() * 1000);
 
-        mySql.insertData('user',data)
-            .then(() => {
-                res.json(JSON.stringify({msg: true}))
-            }).catch((s) => {
-            res.json(JSON.stringify({msg: undefined}));
-        });
+    mySql.insertData('user', data)
+      .then(() => {
+        res.json(JSON.stringify({msg: true}))
+      }).catch((s) => {
+      res.json(JSON.stringify({msg: undefined}));
     });
+  });
 }
 
 module.exports = register;

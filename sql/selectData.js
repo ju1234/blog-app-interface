@@ -7,35 +7,35 @@
 let connection = require('./createConnect');
 
 function selectData(target, table) {
-    return new Promise((resolve, reject) => {
-        const url = dataProcessing(target, table);
-        connection.query(url, function (err, res) {
-            console.log(url);
-            if (err) {
-                console.log('查询失败');
-                console.log(err);
-                reject(err);
-            }
-            if (res) {
-                console.log('查询成功');
-                res = JSON.stringify(res);
-                resolve(res);
-                return res;
-            }
-        });
-    })
+  return new Promise((resolve, reject) => {
+    const url = dataProcessing(target, table);
+    connection.query(url, function (err, res) {
+      console.log(url);
+      if (err) {
+        console.log('查询失败');
+        console.log(err);
+        reject(err);
+      }
+      if (res) {
+        console.log('查询成功');
+        res = JSON.stringify(res);
+        resolve(res);
+        return res;
+      }
+    });
+  })
 }
 
 // 查询语句处理
 function dataProcessing(target, table) {
-    let url = `select ${target[0]} from ${table} `;
-    if (target[1]) {
-        url += `where ${target[1]}\;`;
-    } else {
-        url += `\;`;
-    }
+  let url = `select ${target[0]} from ${table} `;
+  if (target[1]) {
+    url += `where ${target[1]}\;`;
+  } else {
+    url += `\;`;
+  }
 
-    return url;
+  return url;
 }
 
 module.exports = selectData;

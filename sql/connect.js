@@ -7,12 +7,12 @@
 var connection = require('./createConnect');
 
 function connect() {
-  return new Promise((resolve,reject)=>{
-    connection.connect(function (err,res) {
-      if(err){
+  return new Promise((resolve, reject) => {
+    connection.connect(function (err, res) {
+      if (err) {
         console.error("连接失败");
         reject();
-      }else {
+      } else {
         console.log("连接成功");
         resolve();
       }
