@@ -31,6 +31,7 @@ function dataProcess(value,type,id,table) {
     case 'phone':
     case 'address':
     case 'email':
+    case 'sex':
       url += `\"${value}\" `;
       break;
     default:
