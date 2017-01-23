@@ -7,6 +7,7 @@
 var selectData = require('./selectData');
 var insertData = require('./insertData');
 var connect = require('./connect');
+var updateData = require('./updateData')
 var end = require('./end');
 
 
@@ -14,7 +15,8 @@ const mySql = {
   connect: connect,
   selectData: selectData,
   insertData: insertData,
-  end: end
+  end: end,
+  updateData: updateData
 };
 
 
