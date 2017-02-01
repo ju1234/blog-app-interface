@@ -14,10 +14,11 @@ var register = require('./interface/reg.js');
 var hasThisPhone = require('./interface/hasThisPhone.js');
 var alterUserInfo = require('./interface/alterUserInfo.js');
 var getArticle = require('./interface/getArticle.js');
+var hitsAdd = require('./interface/hitsAdd.js');
 
 var app = express();
 
-var mySql = require('./sql/index.js')
+var mySql = require('./sql/index.js');
 
 
 app.use(bodyParser.json());
@@ -45,6 +46,7 @@ register(app);
 hasThisPhone(app);
 alterUserInfo(app);
 getArticle(app);
+hitsAdd(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');

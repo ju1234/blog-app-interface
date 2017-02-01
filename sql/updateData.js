@@ -6,9 +6,9 @@
  */
 let connection = require('./createConnect');
 
-function updateData(value,type,id,table) {
+function updateData(value,key,id,table) {
   return new Promise((resolve,reject) => {
-    const url = dataProcess(value,type,id,table)
+    const url = dataProcess(value,key,id,table);
     connection.query(url, function (err, res) {
       console.log(url);
       if (err) {
