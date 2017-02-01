@@ -15,6 +15,7 @@ var hasThisPhone = require('./interface/hasThisPhone.js');
 var alterUserInfo = require('./interface/alterUserInfo.js');
 var getArticle = require('./interface/getArticle.js');
 var hitsAdd = require('./interface/hitsAdd.js');
+var getViewArticle = require('./interface/getViewArticle.js');
 
 var app = express();
 
@@ -47,6 +48,7 @@ hasThisPhone(app);
 alterUserInfo(app);
 getArticle(app);
 hitsAdd(app);
+getViewArticle(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
