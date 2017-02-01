@@ -12,7 +12,8 @@ var bodyParser = require('body-parser');
 var login = require('./interface/login.js');
 var register = require('./interface/reg.js');
 var hasThisPhone = require('./interface/hasThisPhone.js');
-var alterUserInfo = require('./interface/alterUserInfo.js')
+var alterUserInfo = require('./interface/alterUserInfo.js');
+var getArticle = require('./interface/getArticle.js');
 
 var app = express();
 
@@ -43,6 +44,7 @@ login(app);
 register(app);
 hasThisPhone(app);
 alterUserInfo(app);
+getArticle(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');

@@ -37,7 +37,7 @@ function dataProcess(value,type,id,table) {
     default:
       url += `${value} `;
   }
-  url += `where ${table}.id=${id}`
+  url += `where ${table}.id=${id}`;
   return url;
 }
 
