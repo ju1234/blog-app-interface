@@ -9,6 +9,7 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
+
 var login = require('./interface/login.js');
 var register = require('./interface/reg.js');
 var hasThisPhone = require('./interface/hasThisPhone.js');
@@ -16,6 +17,8 @@ var alterUserInfo = require('./interface/alterUserInfo.js');
 var getArticle = require('./interface/getArticle.js');
 var hitsAdd = require('./interface/hitsAdd.js');
 var getViewArticle = require('./interface/getViewArticle.js');
+var getMyArticle = require('./interface/getMyArticle.js');
+
 
 var app = express();
 
@@ -49,6 +52,7 @@ alterUserInfo(app);
 getArticle(app);
 hitsAdd(app);
 getViewArticle(app);
+getMyArticle(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
