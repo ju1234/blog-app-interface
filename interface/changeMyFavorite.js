@@ -15,7 +15,11 @@ function changeMyFavorite(app) {
     var favorite = null;
     mySql.selectData(['favorite', `user.id=${author_id}`], 'user')
       .then((msg) => {
-        favorite = JSON.parse(msg)[0].favorite.split(',');
+        if(JSON.parse(msg)[0].favorite === null){
+          favorite = [];
+        }else {
+          favorite = JSON.parse(msg)[0].favorite.split(',');
+        }
       })
       .then(() => {
       if (msg === 'true') {
