@@ -19,6 +19,9 @@ var hitsAdd = require('./interface/hitsAdd.js');
 var getViewArticle = require('./interface/getViewArticle.js');
 var getMyArticle = require('./interface/getMyArticle.js');
 var delAtc = require("./interface/delAtc.js");
+var changeMyFavorite = require('./interface/changeMyFavorite.js');
+
+
 
 var app = express();
 
@@ -54,6 +57,7 @@ hitsAdd(app);
 getViewArticle(app);
 getMyArticle(app);
 delAtc(app);
+changeMyFavorite(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
