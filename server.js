@@ -20,7 +20,7 @@ var getViewArticle = require('./interface/getViewArticle.js');
 var getMyArticle = require('./interface/getMyArticle.js');
 var delAtc = require("./interface/delAtc.js");
 var changeMyFavorite = require('./interface/changeMyFavorite.js');
-
+var getMyFavoriteArticle = require('./interface/getMyFavoriteArticle.js');
 
 
 var app = express();
@@ -58,6 +58,7 @@ getViewArticle(app);
 getMyArticle(app);
 delAtc(app);
 changeMyFavorite(app);
+getMyFavoriteArticle(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
