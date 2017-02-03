@@ -39,7 +39,12 @@ module.exports = deleteData;
 
 
 // var mySql = require('../sql/index.js');
-// let connection = require('./createConnect');
-// mySql.connect()
-// connection.query("insert into article value ('1x19','test11','asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',default,'ju',1,default);");
-// mySql.end()
+//
+// let connection = require('./createConnect');mySql.connect();
+// for (let i = 0; i < 100; i++) {
+//
+//   connection.query(`insert into article value ('1x${i}','test${i}','a可以看到，这个格式与0.9版有很大变化。
+// 第一行是请求命令，必须在尾部添加协议版本（HTTP/1.0）。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户。后面就是多行头信息，描述客户端的情况。，以便其',default,'ju',1,default);`);
+//
+// }
+// mySql.end();
