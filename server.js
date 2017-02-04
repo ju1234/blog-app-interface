@@ -21,7 +21,7 @@ var getMyArticle = require('./interface/getMyArticle.js');
 var delAtc = require("./interface/delAtc.js");
 var changeMyFavorite = require('./interface/changeMyFavorite.js');
 var getMyFavoriteArticle = require('./interface/getMyFavoriteArticle.js');
-
+var saveArticle = require('./interface/saveArticle.js')
 
 var app = express();
 
@@ -49,16 +49,29 @@ mySql.connect();
 
 // 登录接口
 login(app);
+// 注册接口
 register(app);
+// 电话号码验证
 hasThisPhone(app);
+// 修改用户信息
 alterUserInfo(app);
+// 获取首页文章
 getArticle(app);
+// 文章点击量
 hitsAdd(app);
+// 获取文章查看页数据
 getViewArticle(app);
+// 获取我的文章
 getMyArticle(app);
+// 删除文章
 delAtc(app);
+// 我的收藏
 changeMyFavorite(app);
+// 获取我的收藏
 getMyFavoriteArticle(app);
+// 存储文章
+saveArticle(app);
+
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
