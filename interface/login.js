@@ -4,7 +4,7 @@
  * 创建者： JU
  * 时间： 2017/1/21
  */
-var mySql = require('../sql/index.js')
+var mySql = require('../sql')
 
 function login(app) {
   // 密码验证 并 返回用户信息

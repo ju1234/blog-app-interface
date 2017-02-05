@@ -5,7 +5,7 @@
  * 时间： 2017/2/3
  */
 
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 function changeMyFavorite(app) {
   // 密码验证 并 返回用户信息
@@ -49,6 +49,9 @@ function changeMyFavorite(app) {
         let resData = JSON.parse(data)[0];
         delete resData.password;
         res.json(JSON.stringify({data: resData}))
+      })
+      .catch((err) => {
+        console.log(err)
       })
   })
 }

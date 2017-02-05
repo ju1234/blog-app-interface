@@ -6,7 +6,7 @@
  */
 
 
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 function saveArticle(app) {
   app.post('/api/saveArticle', (req, res) => {
@@ -14,8 +14,12 @@ function saveArticle(app) {
 
     mySql.selectData(['id', `article.author_id=${req.body.author_id} order by time`], 'article')
       .then((data) => {
-        const lastId = JSON.parse(data)[JSON.parse(data).length - 1].id;
-        req.body.id = `${req.body.author_id}x${parseInt(lastId.split('x')[1]) + 1}`;
+        if (JSON.parse(data).length === 0) {
+          req.body.id = `${req.body.author_id}x1`;
+        } else {
+          const lastId = JSON.parse(data)[JSON.parse(data).length - 1].id;
+          req.body.id = `${req.body.author_id}x${parseInt(lastId.split('x')[1]) + 1}`;
+        }
         return mySql.insertData('article', req.body)
       })
       .then(() => {
@@ -25,7 +29,10 @@ function saveArticle(app) {
         res.json(JSON.stringify({
           data: data
         }))
-      });
+      })
+      .catch((err) => {
+        console.log(err)
+      })
 
   })
   ;

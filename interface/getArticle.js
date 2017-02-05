@@ -5,7 +5,7 @@
  * 时间： 2017/2/1
  */
 
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 
 function getArticle(app) {
@@ -15,6 +15,9 @@ function getArticle(app) {
         res.json(JSON.stringify({
           data: data
         }))
+      })
+      .catch((err) => {
+        console.log(err)
       })
   })
 }

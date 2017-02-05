@@ -4,7 +4,7 @@
  * 创建者： JU
  * 时间： 2017/2/1
  */
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 function hitsAdd(app) {
   app.post('/api/hits',(req,res) => {
@@ -18,6 +18,9 @@ function hitsAdd(app) {
         res.json(JSON.stringify({
           msg: true
         }))
+      })
+      .catch((err) => {
+        console.log(err)
       })
   })
 }

@@ -21,7 +21,8 @@ var getMyArticle = require('./interface/getMyArticle.js');
 var delAtc = require("./interface/delAtc.js");
 var changeMyFavorite = require('./interface/changeMyFavorite.js');
 var getMyFavoriteArticle = require('./interface/getMyFavoriteArticle.js');
-var saveArticle = require('./interface/saveArticle.js')
+var saveArticle = require('./interface/saveArticle.js');
+var search = require('./interface/search.js');
 
 var app = express();
 
@@ -71,7 +72,8 @@ changeMyFavorite(app);
 getMyFavoriteArticle(app);
 // 存储文章
 saveArticle(app);
-
+// 搜索
+search(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');

@@ -6,7 +6,7 @@
  */
 
 
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 
 function getViewArticle(app) {
@@ -16,6 +16,9 @@ function getViewArticle(app) {
         res.json(JSON.stringify({
           data: data
         }))
+      })
+      .catch((err) => {
+        console.log(err)
       })
   })
 }

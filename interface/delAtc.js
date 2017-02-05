@@ -5,7 +5,7 @@
  * 时间： 2017/2/2
  */
 
-var mySql = require('../sql/index.js');
+var mySql = require('../sql');
 
 function delAtc(app) {
   // 密码验证 并 返回用户信息
@@ -16,6 +16,9 @@ function delAtc(app) {
           res.json(JSON.stringify({
             msg: true
           }))
+      })
+      .catch((err) => {
+        console.log(err)
       })
   })
 }
