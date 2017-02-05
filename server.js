@@ -23,6 +23,7 @@ var changeMyFavorite = require('./interface/changeMyFavorite.js');
 var getMyFavoriteArticle = require('./interface/getMyFavoriteArticle.js');
 var saveArticle = require('./interface/saveArticle.js');
 var search = require('./interface/search.js');
+var getOther = require('./interface/getOther');
 
 var app = express();
 
@@ -74,6 +75,8 @@ getMyFavoriteArticle(app);
 saveArticle(app);
 // 搜索
 search(app);
+//获取其他用户信息
+getOther(app);
 
 app.listen(app.get('port'), function () {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
