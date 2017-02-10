@@ -15,13 +15,18 @@ function register(app) {
 
       mySql.selectData(['id'], 'user').then((msg) => {
         let idArr = JSON.parse(msg);
-        data.id = idArr[idArr.length - 1].id+1;
+        data.id = idArr[idArr.length - 1].id + 1;
         console.log(data)
       }).then(() => {
         return mySql.insertData('user', data)
       }).then(() => {
+        return mySql.selectData(['*',`user.id=${data.id}`],'user')
+      }).then((data) => {
         //插入成功
-        res.json(JSON.stringify({msg: true}))
+        console.log(data);
+        var payload = JSON.parse(data)[0];
+        delete payload.password;
+        res.json(JSON.stringify({msg: true,data: JSON.stringify(payload)}))
       }).catch((s) => {
 
         res.json(JSON.stringify({msg: undefined}));

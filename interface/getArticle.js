@@ -11,17 +11,17 @@ var mySql = require('../sql');
 function getArticle(app) {
   app.post('/api/getArticle', (req, res) => {
     const reqCount = req.body.reqCount;
-    console.log(reqCount)
     mySql.selectData('*', 'article')
       .then((data) => {
         let dataArr = JSON.parse(data);
+        console.log(dataArr);
         if (dataArr.length > 20 * reqCount) {
           res.json(JSON.stringify({
             data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, reqCount * 20))
           }))
         } else {
           res.json(JSON.stringify({
-            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, dataArr.length - 1))
+            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, dataArr.length))
           }))
         }
 
