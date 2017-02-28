@@ -11,7 +11,7 @@ function search(app) {
     const {value,reqCount} = req.body;
     let userList = [];
     let articleList = [];
-
+    let hasMore = true;
     mySql.selectData(["name,id", `user.name like '%${value}%'`], 'user')
       .then((data) => {
         if (JSON.parse(data).length !== 0) {
@@ -39,6 +39,7 @@ function search(app) {
           articleList = articleList.slice((reqCount -1) * 20,reqCount * 20);
         }else {
           articleList = articleList.slice((reqCount -1) * 20,articleList.length - 1);
+          hasMore = false;
         }
         articleList.map((article) => {
           article.title = article.title.replace(value, `<span class="cue">${value}</span>`);
@@ -46,7 +47,8 @@ function search(app) {
         });
         res.json(JSON.stringify({
           userList: userList,
-          articleList: articleList
+          articleList: articleList,
+          hasMore: hasMore
         }))
       })
       .catch((err) => {

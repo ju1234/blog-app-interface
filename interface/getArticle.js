@@ -14,14 +14,15 @@ function getArticle(app) {
     mySql.selectData('*', 'article')
       .then((data) => {
         let dataArr = JSON.parse(data);
-        console.log(dataArr);
         if (dataArr.length > 20 * reqCount) {
           res.json(JSON.stringify({
-            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, reqCount * 20))
+            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, reqCount * 20)),
+            hasMore: true
           }))
         } else {
           res.json(JSON.stringify({
-            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, dataArr.length))
+            data: JSON.stringify(dataArr.slice((reqCount - 1) * 20, dataArr.length)),
+            hasMore: false
           }))
         }
 
